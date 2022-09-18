@@ -18,7 +18,7 @@ public class HomeWorkTask10 {
     public static void shiftArray(int[] array, int n) {
         int count = 0;
         if (n > 0) {
-            do {
+            while (count < n) {
                 for (int i = array.length - 2; i >= 0; i--) {
                     int rightInd = array[i + 1];
                     array[i + 1] = array[i];
@@ -26,11 +26,10 @@ public class HomeWorkTask10 {
                 }
 
                 count += 1;
-
-            } while (count < n);
+            }
 
         } else {
-            do {
+            while (count > n) {
                 for (int i = 0; i < array.length - 1; i++) {
                     int leftInd = array[i + 1];
                     array[i + 1] = array[i];
@@ -38,8 +37,7 @@ public class HomeWorkTask10 {
                 }
 
                 count -= 1;
-
-            } while (count > n);
+            }
         }
     }
 }
