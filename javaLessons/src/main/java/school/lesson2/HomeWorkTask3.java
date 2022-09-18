@@ -17,7 +17,6 @@ public class HomeWorkTask3 {
             System.out.println(findNegativeNumeral(0));
      */
     public static boolean findNegativeNumeral(int a) {
-        boolean isNegative = true;
         if (a < 0) {
             return true;
         } else {

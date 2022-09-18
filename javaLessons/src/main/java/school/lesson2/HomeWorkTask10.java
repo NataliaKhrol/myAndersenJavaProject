@@ -1,5 +1,7 @@
 package school.lesson2;
 
+import java.util.Arrays;
+
 /*
 Написать метод, которому на вход подается одномерный массив и число n (может быть положительным, или отрицательным),
 при этом метод должен сместить все элементы массива на n позиций. Элементы смещаются циклично. Для усложнения задачи
@@ -8,7 +10,9 @@ package school.lesson2;
  */
 public class HomeWorkTask10 {
     public static void main(String[] args) {
-        shiftArray(new int[]{2, 5, 3}, 2);
+        int[] array = {3, 5, 6, 1};
+        shiftArray(array, -2);
+        System.out.println(Arrays.toString(array));
     }
 
     public static void shiftArray(int[] array, int n) {
@@ -19,26 +23,23 @@ public class HomeWorkTask10 {
                     int rightInd = array[i + 1];
                     array[i + 1] = array[i];
                     array[i] = rightInd;
-                    count += 1;
                 }
-            }
-            while (count <= n);
-            for (int i = 0; i < array.length; i++) {
-                System.out.print(array[i]);
-            }
+
+                count += 1;
+
+            } while (count < n);
+
         } else {
             do {
-                for (int i = 0; i < array.length-1; i++) {
+                for (int i = 0; i < array.length - 1; i++) {
                     int leftInd = array[i + 1];
                     array[i + 1] = array[i];
                     array[i] = leftInd;
-                    count -= 1;
                 }
-            }
-            while (count >= n);
-            for (int i = 0; i < array.length; i++) {
-                System.out.print(array[i]);
-            }
+
+                count -= 1;
+
+            } while (count > n);
         }
     }
 }
