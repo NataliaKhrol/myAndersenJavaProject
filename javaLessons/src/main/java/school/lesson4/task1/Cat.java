@@ -1,4 +1,4 @@
-package school.lesson4;
+package school.lesson4.task1;
 
 public class Cat extends Animal {
     private static int count = 0;
