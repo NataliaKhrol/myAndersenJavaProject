@@ -45,11 +45,18 @@ public class AppDataLoader {
         String[] newArray = q.get(0).split(";");
         result.setHeader(newArray);
 
+        int[][] matrixNew = new int[q.size() - 1][];
         for (int i = 1; i < q.size(); i++) {
-           String[] newArray2 = q.get(i).split(";");
+            String[] newArray2 = q.get(i).split(";");
+
+            int[] numbers = new int[newArray2.length];
+            for (int j = 0; j < newArray2.length; j++) {
+                numbers[j] = Integer.parseInt(newArray2[j]);
+
+            }
+            matrixNew[i - 1] = numbers;
         }
-
-
+        result.setData(matrixNew);
 
         return result;
 
