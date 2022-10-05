@@ -1,9 +1,8 @@
 package school.lesson7;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.PrintWriter;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AppDataLoader {
     public void save(AppData appData, File file) throws FileNotFoundException {
@@ -14,7 +13,8 @@ public class AppDataLoader {
             String s = appData.getHeader()[i];
             pw.write(s);
             pw.write(div);
-        }pw.write("\n");
+        }
+        pw.write("\n");
 
         int[][] matrix = appData.getData();
         for (int i = 0; i < matrix.length; i++) {
@@ -30,16 +30,36 @@ public class AppDataLoader {
 
     }
 
-    public AppData load(File file) throws FileNotFoundException {
-        FileReader reader = new FileReader(file);
+    public AppData load(File file) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        String ln = reader.readLine();
+        List<String> q = new ArrayList<>();
 
-        //  File file = new File();
-        //pw.write(Arrays.toString(header));
-        //pw.write(Arrays.deepToString(data));
-        // pw.write(sb2.toString());
-        //pw.close();
+        while (ln != null) {
+            q.add(ln);
+            ln = reader.readLine();
+        }
+        reader.close();
 
-        //if(file.exists()){
-        return null;
+        AppData result = new AppData();
+        String[] newArray = q.get(0).split(";");
+        result.setHeader(newArray);
+
+        for (int i = 1; i < q.size(); i++) {
+           String[] newArray2 = q.get(i).split(";");
+        }
+
+
+
+        return result;
+
     }
 }
+
+//  File file = new File();
+//pw.write(Arrays.toString(header));
+//pw.write(Arrays.deepToString(data));
+// pw.write(sb2.toString());
+//pw.close();
+
+//if(file.exists()){
