@@ -12,6 +12,8 @@ public class Main {
         File file = new File("myFirstFile.csv");
         AppDataLoader loader = new AppDataLoader();
         AppData appData = new AppData();
+        appData.setHeader(new String[]{"Value1", "Value2", "Value3"});
+        appData.setData(new int[][]{{100,200,123}, {300,400,500}});
         loader.save(appData, file);
 
         //  AppData data = loader.load(file);
