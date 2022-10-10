@@ -13,29 +13,14 @@ import java.util.Set;
 через консоль и т.д). Консоль использовать только для вывода результатов проверки телефонного справочника.
  */
 
+// ПЕРВЫЙ ВАРИАНТ РЕШЕНИЯ
+
 public class PhoneBook {
     HashMap<String, String> phoneInfo = new HashMap<>();
-    String name;
-    String phone;
 
-    public String getName() {
-        return name;
-    }
 
     public void setPhoneInfo(HashMap<String, String> phoneInfo) {
         this.phoneInfo = phoneInfo;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getPhone() {
-        return phone;
     }
 
     public HashMap<String, String> getPhoneInfo() {
@@ -50,9 +35,9 @@ public class PhoneBook {
     public void get(String name) {
         if (phoneInfo.containsValue(name)) {
             Set<Map.Entry<String, String>> set = phoneInfo.entrySet();
-            for (Map.Entry<String, String> temp : set) {
-                if (temp.getValue().equals(name)) {
-                    System.out.println(temp.getValue() + " : " + temp.getKey());
+            for (Map.Entry<String, String> buffer : set) {
+                if (buffer.getValue().equals(name)) {
+                    System.out.println(buffer.getValue() + " : " + buffer.getKey());
                 }
             }
         } else {
@@ -60,35 +45,5 @@ public class PhoneBook {
         }
     }
 }
-      /*  if (result == null) {
-            System.out.println("There is not any " + name + " in the list");
-
-        }else {
-            System.out.println(result);
-        }*
-      /*
-            //получить ключ
-            K key = entry.getKey();
-            //получить значение
-        }*/
-
-/*
-public class PhoneBook {
-    static HashMap<String, Integer> phoneInfo = new HashMap<>();
-
-    public HashMap<String, Integer> getPhoneInfo() {
-        return phoneInfo;
-    }
-
-    public void add(String name, Integer phone) {
-        phoneInfo.put(name, phone);
-    }
-
-    public static String get(String name) {
-        String result = String.valueOf(phoneInfo.get(name));
-        if (result == null){
-            System.out.println("Aбонента с такой фамилией нет");
-
-               }*/
 
 

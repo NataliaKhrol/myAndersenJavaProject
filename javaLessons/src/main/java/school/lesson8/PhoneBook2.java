@@ -14,6 +14,8 @@ import java.util.Set;
 через консоль и т.д). Консоль использовать только для вывода результатов проверки телефонного справочника.
  */
 
+// ВТОРОЙ ВАРИАНТ РЕШЕНИЯ
+
 public class PhoneBook2 {
     private HashMap<String, HashSet<String>> phoneBook = new HashMap<>();
 
